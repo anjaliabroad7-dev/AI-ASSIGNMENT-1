@@ -1,0 +1,85 @@
+Here’s a simple Flask application that serves the login form (from Task #3) and prints the username on successful login. The app uses server‑side validation to ensure both fields are non‑empty.
+
+✅ Flask App Code
+from flask import Flask, render_template_string, request
+
+app = Flask(__name__)
+
+# HTML template with form
+login_form_html = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; }
+    .login-container {
+      width: 300px; margin: 100px auto; padding: 20px;
+      background: #fff; border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h2 { text-align: center; }
+    label { display: block; margin-top: 1rem; }
+    input { width: 100%; padding: 0.5rem; margin-top: 0.25rem; }
+    .error { color: red; font-size: 0.9rem; }
+    button {
+      margin-top: 1rem; width: 100%; padding: 0.75rem;
+      background: #2563eb; color: #fff; border: none; border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form method="POST">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" value="{{ username|default('') }}">
+      {% if username_error %}<div class="error">{{ username_error }}</div>{% endif %}
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+      {% if password_error %}<div class="error">{{ password_error }}</div>{% endif %}
+
+      <button type="submit">Login</button>
+    </form>
+    {% if success %}
+      <p style="color:green; margin-top:1rem;">Login successful! Welcome, {{ username }}.</p>
+    {% endif %}
+  </div>
+</body>
+</html>
+"""
+
+@app.route("/", methods=["GET", "POST"])
+def login():
+    username_error = ""
+    password_error = ""
+    success = False
+    username = ""
+
+    if request.method == "POST":
+        username = request.form.get("username", "").strip()
+        password = request.form.get("password", "").strip()
+
+        if not username:
+            username_error = "Username cannot be empty."
+        if not password:
+            password_error = "Password cannot be empty."
+
+        if username and password:
+            success = True
+
+    return render_template_string(
+        login_form_html,
+        username=username,
+        username_error=username_error,
+        password_error=password_error,
+        success=success
+    )
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
+
