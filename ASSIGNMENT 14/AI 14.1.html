@@ -1,0 +1,102 @@
+Here’s a clean, well‑indented HTML template for a Student Info Portal homepage that includes <header>, <nav>, and <footer> with clear comments for readability:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Info Portal</title>
+  <style>
+    /* Basic styling for layout */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    /* Header styling */
+    header {
+      background-color: #2563eb;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    /* Navigation menu styling */
+    nav {
+      background-color: #1e3a8a;
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Main content styling */
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* Footer styling */
+    footer {
+      background-color: #0f172a;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header section -->
+  <header>
+    <h1>Student Info Portal</h1>
+    <p>Welcome to the central hub for student information</p>
+  </header>
+
+  <!-- Navigation menu -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#students">Students</a>
+    <a href="#courses">Courses</a>
+    <a href="#results">Results</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Main content -->
+  <main>
+    <h2>Welcome!</h2>
+    <p>Use the navigation menu above to explore student details, courses, and results.</p>
+  </main>
+
+  <!-- Footer section -->
+  <footer>
+    <p>&copy; <span id="year"></span> Student Info Portal | All Rights Reserved</p>
+  </footer>
+
+  <!-- Script to auto-update year -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
+
+
+✅ This version has:
+- Header with a title and tagline
+- Navigation menu with links
+- Footer with dynamic year
+- Clean indentation and comments for clarity
+Would you like me to also add a responsive design tweak (like collapsing the nav into a hamburger menu on mobile)?
