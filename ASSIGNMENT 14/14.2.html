@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Info Portal</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    color: #333;
+    }
+
+    /* Header */
+    header {
+      background-color: #2563eb;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    /* Navigation bar */
+    nav {
+      background-color: #1e3a8a;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0.5rem 1rem;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Centered content section */
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 60vh;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    main h2 {
+      margin-bottom: 1rem;
+    }
+
+    /* Footer with light gray background */
+    footer {
+      background-color: #e5e7eb;
+      color: #333;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    /* Responsive nav: stack links on small screens */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav a {
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Student Info Portal</h1>
+    <p>Your hub for student information</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#students">Students</a>
+    <a href="#courses">Courses</a>
+    <a href="#results">Results</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Main content -->
+  <main>
+    <div>
+      <h2>Welcome!</h2>
+      <p>Explore student details, courses, and results using the navigation above.</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="year"></span> Student Info Portal | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Auto-update year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
